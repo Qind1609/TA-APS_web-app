@@ -1,0 +1,105 @@
+{
+    "extends": ["airbnb", "prettier"],
+    //  "plugins": ["prettier"],
+    "plugins": ["only-warn"],
+    "rules": {
+      "jsx-quotes": ["warn", "prefer-double"],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [".js", ".jsx"]
+        }
+      ],
+      "class-methods-use-this": [1],
+      "react/button-has-type": 0,
+      "no-plusplus": 0,
+      "react/no-unescaped-entities": [
+        2,
+        {
+          "forbid": [">", "}"]
+        }
+      ],
+      "react/destructuring-assignment": [1, "always", { "ignoreClassFields": true }],
+      "react/no-array-index-key": 0,
+      "react/no-multi-comp": 0,
+      "react/sort-comp": 0,
+      "react/jsx-props-no-spreading": 0,
+      "react/static-property-placement": 0,
+      "react/prefer-stateless-function": [1],
+      "dot-notation": [
+        2,
+        {
+          "allowPattern": "^[a-z]+(_[a-z]+)+$"
+        }
+      ],
+      "no-shadow": "off",
+      "jsx-a11y/label-has-for": 0,
+      "jsx-a11y/label-has-associated-control": 0,
+      "jsx-a11y/no-static-element-interactions": 0,
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/media-has-caption": 0,
+      "radix": 0,
+      "camelcase": 0,
+      "react/prop-types": 0,
+      "no-unused-expressions": "off",
+      "no-nested-ternary": 0,
+      "no-underscore-dangle": 0,
+      "consistent-return": "off",
+      "no-bitwise": [
+        1,
+        {
+          "allow": ["&", ">>", "|"]
+        }
+      ],
+      "prefer-destructuring": [
+        1,
+        {
+          "array": false,
+          "object": true
+        }
+      ],
+      "import/prefer-default-export": 0,
+      "import/newline-after-import": 1,
+      "import/no-extraneous-dependencies": 0,
+      "no-console": 0,
+      "no-param-reassign": "off",
+      "array-callback-return": "off",
+      "react/function-component-definition": 0,
+      "react/react-in-jsx-scope": 0, // this config consider to remove
+      "import/imports-first": 0 // this config consider to remove
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
+    },
+    "globals": {
+      "window": true,
+      "document": true,
+      "localStorage": true,
+      "sessionStorage": true,
+      "FormData": true,
+      "FileReader": true,
+      "ResizeObserver": true,
+      "Blob": true,
+      "ImageData": true,
+      "navigator": true,
+      "process": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false,
+      "babelOptions": {
+        "presets": ["@babel/preset-react"]
+      },
+      "ecmaFeatures": {
+        "globalReturn": false,
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    }
+  }
