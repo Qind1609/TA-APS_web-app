@@ -5,7 +5,7 @@ import CardLineChartWeek from "./CardLineChartWeek";
 
 const utils = require('../../../helpers/utils');
 
-const ChartHome = ({ time = [], consumption = [], flow = [] }) => {
+const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
   const [openTab, setOpenTab] = useState(1);
   const [dayArray, setDayArray] = useState([]);
   const [weekArray, setWeekArray] = useState([]);
@@ -18,31 +18,10 @@ const ChartHome = ({ time = [], consumption = [], flow = [] }) => {
   const [flowMonth, setFlowMonth] = useState([]);
 
   useEffect(() => {
-    let timeArray = utils.handleTimeDataImport(time);
-    console.log("time dayArray",timeArray);
-    let dayTemp = Object.keys(timeArray.day)
-    let consumptionTemp = [];
-    let flowTemp = [];
-    setDayArray(dayTemp);
-    dayTemp.forEach((day) => {
-      let sumConsumption = 0;
-      let sumFlow = 0;
-      //console.log(consumption.slice(timeArray.day[day].from, timeArray.day[day].to));
-
-      //.forEach((item)=> {
-      //   sumConsumption += item;
-      // })
-      consumptionTemp.push(sumConsumption);
-      flow.slice(timeArray.day.from, timeArray.day.to).forEach((item)=> {
-        sumFlow += item;
-      })
-      flowTemp.push(sumFlow);
-    });
-
-    // console.log(consumptionTemp);
-    // console.log(flowTemp);
-    setConsumptionDay(consumptionTemp);
-    setFlowDay(flowTemp);
+    console.log("time dayArray",time.dayArr);
+    setDayArray(time.dayArr);
+    setConsumptionDay(consumption.day);
+    setFlowDay(flow.day);
   }, [time, consumption, flow])
   return (
     <>

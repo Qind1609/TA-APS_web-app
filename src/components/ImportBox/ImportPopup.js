@@ -73,7 +73,6 @@ export default function DataImport() {
       setLoadMsg('');
       if (res?.data?.success) {
         window.alert(`Import file ${file.name} successfully!`);
-        //TODO: reload data to show new data
         global.time = res.data.data.time;
         global.temp = res.data.data.temp;
         global.press = res.data.data.press;
