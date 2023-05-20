@@ -1,7 +1,22 @@
 import React from 'react';
 
-export default function CardLineChartDay({ data }) {
+export default function CardLineChartDay({ data, data_2 }) {
   React.useEffect(() => {
+    let ctx = document.getElementById("daychartLineDay").getContext("2d");
+    let chartCanvas = document.getElementById("daychartLineDay");
+    let chartHeight = chartCanvas.clientHeight;
+    let chartCanvas_2 = document.getElementById("daychartLineDay");
+    let chartHeight_2 = chartCanvas_2.clientHeight;
+
+    const gradient_2 = ctx.createLinearGradient(0, 0, 0, chartHeight_2);
+    gradient_2.addColorStop(0, 'rgba(241,1,12,0.6)');
+    gradient_2.addColorStop(1, 'rgba(241,1,12,0)');
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
+    gradient.addColorStop(0, 'rgba(1,185,241,1)');
+    gradient.addColorStop(1, 'rgba(1,185,241,0)');
+
+
     let config = {
       type: "line",
       data: {
@@ -61,10 +76,18 @@ export default function CardLineChartDay({ data }) {
         datasets: [
           {
             label: new Date().getFullYear(),
-            backgroundColor: "#3FFFF",
-            borderColor: "#33FFFF",
+            backgroundColor: gradient, // Put the gradient here as a fill color
+            borderColor: "#048cd0",
             data: data,
-            fill: false,
+            fill: true,
+            tension: 0.4,
+          },
+          {
+            label: new Date().getFullYear(),
+            backgroundColor: gradient_2,
+            borderColor: "#f1010c",
+            data: data_2,
+            fill: true,
             tension: 0.4,
           },
         ],
@@ -155,28 +178,26 @@ export default function CardLineChartDay({ data }) {
       },
     };
 
-    let ctx = document.getElementById("daychartLineDay").getContext("2d");
+
     window.chartDay && window.chartDay.destroy();
     window.chartDay = new Chart(ctx, config);
   }, [data]);
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words bg-blueGray-700 w-full">
-        <div className="rounded-t mb-0 px-4 pt-3 bg-transparent">
+      <div className="rounded-md relative flex flex-col min-w-0 break-words bg-white w-full">
+        <div className="rounded-t mb-6 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
-              <h6 className="uppercase mt-3 text-blueGray-100 mb-1 text-xs font-semibold">
+              <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">
                 ENERGY
               </h6>
-              <h2 className="text-white text-xl font-semibold">MONITORING</h2>
-              <h2 className="text-blueGray-700 text-xl font-semibold">
-                Total orders
-              </h2>
+              <h2 className="text-blueGray-700 text-xl font-semibold">MONITORING</h2>
+
             </div>
           </div>
         </div>
         <div className="px-4 flex-auto">
-          <div className="relative h-screen">
+          <div className="relative h-screen ">
             <canvas id="daychartLineDay"></canvas>
           </div>
         </div>

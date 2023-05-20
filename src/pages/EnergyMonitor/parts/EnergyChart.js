@@ -9,11 +9,11 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
     <>
       <div className="">
         <div className="w-full sm:mt-15">
-          <ul className="flex mb-0 list-none   flex-row" role="tablist">
-            <li className="-mb-px  last:mr-0 flex-auto text-center">
+          <ul className="flex mb-0 list-none p-2  flex-row" role="tablist">
+            <li className="-mb-px mx-2 last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase py-2 shadow-lg  block leading-normal " +
+                  "text-xs rounded-full font-bold uppercase py-2 shadow-lg  block leading-normal " +
                   (openTab === 1
                     ? "text-white bg-blueGray-600"
                     : "text-blueGray-600 bg-blueGray-400 ")
@@ -32,7 +32,7 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
             <li className="-mb-px last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase  py-2 shadow-lg  block leading-normal " +
+                  "text-xs rounded-full font-bold uppercase  py-2 shadow-lg  block leading-normal " +
                   (openTab === 2
                     ? "text-white bg-blueGray-600"
                     : "text-blueGray-600 bg-blueGray-400")
@@ -48,10 +48,10 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
                 Weeks
               </a>
             </li>
-            <li className="-mb-px  last:mr-0 flex-auto text-center">
+            <li className="-mb-px mx-2 rounded-full last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase py-2 shadow-lg block leading-normal " +
+                  "text-xs rounded-full font-bold uppercase py-2 shadow-lg block leading-normal " +
                   (openTab === 3
                     ? "text-white bg-blueGray-600"
                     : "text-blueGray-600 bg-blueGray-400")
@@ -68,7 +68,7 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words w-full">
+          <div className="relative p-4 bg-blueGray-500 flex flex-col min-w-0 break-words w-full">
             <div className="">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">

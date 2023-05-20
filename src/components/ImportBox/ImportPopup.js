@@ -137,7 +137,7 @@ export default function DataImport() {
                   ref={inputRef}
                   onChange={handleFileChange}
                 />
-                <div className="bg-blueGray-600  text-white active:bg-blueGray-400 font-bold uppercase flex justify-between items-center text-xs px-4 py-2  rounded-r shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                <div className="bg-blueGray-600 mx-2  text-white active:bg-blueGray-400 font-bold uppercase flex justify-between items-center text-xs px-4 py-2  rounded-r shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                   onClick={handleBrowseClick}
                 >  Browse  </div>
               </div>

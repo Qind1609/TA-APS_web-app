@@ -68,7 +68,7 @@ const ChartTemp = ({ energy_data, energy_data_2 }) => {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words w-full">
+          <div className="relative p-4 flex flex-col min-w-0 break-words w-full">
             <div className="">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">

@@ -160,7 +160,7 @@ export default function CardLineChartMonth({ data }) {
   }, [data]);
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words bg-blueGray-700 w-full">
+      <div className="relative rounded-md flex flex-col min-w-0 break-words bg-blueGray-700 w-full">
         <div className="rounded-t mb-0 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">

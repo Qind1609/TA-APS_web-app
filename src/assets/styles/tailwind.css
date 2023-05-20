@@ -1373,7 +1373,7 @@ select {
 
 .bg-blueGray-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(219, 215, 215, var(--tw-bg-opacity));
+  background-color: rgba(215, 215, 21695, var(--tw-bg-opacity));
 }
 
 .bg-blueGray-800 {
@@ -2240,6 +2240,10 @@ select {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .mx-4 {
@@ -4427,6 +4431,11 @@ select {
 @media (min-height: 960px) {
   .h-screen {
     height: 758px;
+  }
+}
+@media (min-height: 1000px) {
+  .h-screen {
+    height: 760px;
   }
 }
 @media (min-height: 1007px) {

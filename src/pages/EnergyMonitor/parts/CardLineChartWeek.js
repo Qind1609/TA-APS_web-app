@@ -1,6 +1,5 @@
 import React from "react";
-
-export default function CardLineChartWeek({ data, data_2 }) {
+export default function CardLineChartWeek({ data }) {
   React.useEffect(() => {
     let config = {
       type: "line",
@@ -60,7 +59,7 @@ export default function CardLineChartWeek({ data, data_2 }) {
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
+            label: "kWh",
             backgroundColor: "#3FFFF",
             borderColor: "#33FFFF",
             data: data,
@@ -161,7 +160,7 @@ export default function CardLineChartWeek({ data, data_2 }) {
   }, [data]);
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words bg-blueGray-700 w-full">
+      <div className="relative rounded-md flex flex-col min-w-0 break-words bg-blueGray-700 w-full">
         <div className="rounded-t mb-0 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">

@@ -18,10 +18,15 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
   const [flowMonth, setFlowMonth] = useState([]);
 
   useEffect(() => {
-    console.log("time dayArray",time.dayArr);
+    console.log("time weekArray",time.weekArr);
     setDayArray(time.dayArr);
     setConsumptionDay(consumption.day);
     setFlowDay(flow.day);
+    setWeekArray(time.weekArr);
+    setConsumptionWeek(consumption.week);
+    setFlowWeek(flow.week);
+    setMonthArray(time.monthArr);
+    setConsumptionMonth(consumption.month);
   }, [time, consumption, flow])
   return (
     <>
@@ -86,7 +91,7 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words w-full">
+          <div className="relative p-4 flex flex-col min-w-0 break-words w-full">
             <div className="">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">

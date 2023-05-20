@@ -148,7 +148,7 @@ export default function CardLineChartDay({ time, consumption, flow }) {
           </div>
         </div>
         <div className="px-4 flex-auto">
-          <div className="relative h-screen">
+          <div className="relative h-screen ">
             <canvas id="daychartLineDay"></canvas>
           </div>
         </div>
