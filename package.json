@@ -31,6 +31,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "win-start": "set REACT_APP_ENV=local dotenv -e .env.local && craco start",
     "start": "REACT_APP_ENV=local dotenv -e .env.local craco start",
     "dev": "REACT_APP_ENV=development dotenv -e .env.development craco start",
     "production": "REACT_APP_ENV=production dotenv -e .env.production craco start",

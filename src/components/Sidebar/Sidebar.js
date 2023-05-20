@@ -7,7 +7,7 @@ import Button from 'components/Buttons/ButtonDarkMode';
 import NotificationDropdown from 'components/Dropdowns/NotificationDropdown';
 import UserDropdown from 'components/Dropdowns/UserDropdown';
 
-export default function Sidebar() {
+export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
   const [mounted, setMounted] = useState(false);
   const [collapseShow, setCollapseShow] = useState('hidden');
 
@@ -22,7 +22,7 @@ export default function Sidebar() {
 
     if (currentTheme === 'dark') {
       return (
-        <Button className="bg-gray-200 mx-4 " onClick={() => { }}>
+        <Button className="bg-gray-200 mx-4 " onClick={() => {}}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
               fillRule="evenodd"
@@ -34,7 +34,7 @@ export default function Sidebar() {
       );
     } else {
       return (
-        <Button className="bg-gray-200 mx-4" onClick={() => { }}>
+        <Button className="bg-gray-200 mx-4" onClick={() => {}}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
           </svg>
@@ -46,11 +46,17 @@ export default function Sidebar() {
   return (
     <>
       <nav
-        className={
-          'md:left-0 md:block bg-blueGray-800  md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl lex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6'
-        }
+        className={`md:left-0 md:block bg-blueGray-800  md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl lex flex-wrap items-center justify-between relative m-2 rounded-lg  z-10 py-4 px-6
+        ${isSidebarOpen ? 'md:w-1/5' : 'md:w-64'}  
+        `}
       >
-        <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
+        <button onClick={handleButtonClick} className="button">
+          <i className="fas fa-bars text-white md:block hidden font-semibold p-2"></i>
+        </button>
+        <div
+          className={`md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto
+         `}
+        >
           {/* Toggler */}
           <button
             className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
@@ -59,12 +65,14 @@ export default function Sidebar() {
           >
             <i className="fas fa-bars"></i>
           </button>
+
           {/* Brand */}
           <Link
-            className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+            className={` text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
+            ${isSidebarOpen ? 'hidden' : ''}`}
             to="/"
           >
-            Think Alpha
+            eThink Alpha
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -89,10 +97,14 @@ export default function Sidebar() {
             {/* Collapse header */}
             <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
               <div className="flex flex-wrap">
-                <div className="w-6/12">
+                <div
+                  className={`w-6/12
+                `}
+                >
                   <Link
                     to="/"
-                    className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                    className={`md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0
+                    `}
                   >
                     THINK ALPHA
                   </Link>
@@ -122,7 +134,10 @@ export default function Sidebar() {
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-400 text-md uppercase block pt-1 mt-6 pb-4 no-underline">
+            <h6
+              className={`md:min-w-full text-blueGray-400 text-md uppercase  pt-1 mt-6 pb-4 no-underline
+            ${isSidebarOpen ? 'hidden' : ''}`}
+            >
               Monitors
             </h6>
 
@@ -132,7 +147,7 @@ export default function Sidebar() {
                 <Link
                   to="/home"
                   className={
-                    'text-xs uppercase py-3  block ' +
+                    'text-xs uppercase py-3 flex ' +
                     (window.location.href.indexOf('/home') !== -1
                       ? 'text-lightBlue-500 hover:text-lightBlue-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
@@ -140,7 +155,7 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      'fas fa-tv mr-2 text-sm ' +
+                      'fas fa-home mr-3 text-sm ' +
                       (window.location.href.indexOf('/home') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                     }
                   ></i>{' '}
@@ -151,7 +166,7 @@ export default function Sidebar() {
                 <Link
                   to="/energy-monitor"
                   className={
-                    'text-xs uppercase py-3  block ' +
+                    'text-xs uppercase py-3  flex ' +
                     (window.location.href.indexOf('/energy-monitor') !== -1
                       ? 'text-lightBlue-500 hover:text-lightBlue-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
@@ -159,11 +174,11 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      'fas fa-tv mr-2 text-sm ' +
+                      'fas fa-tv mr-3 text-sm ' +
                       (window.location.href.indexOf('/energy-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                     }
                   ></i>{' '}
-                  Electricity
+                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Electricity</p>
                 </Link>
               </li>
 
@@ -171,7 +186,7 @@ export default function Sidebar() {
                 <Link
                   to="/load-monitor"
                   className={
-                    'text-xs uppercase py-3  block ' +
+                    'text-xs uppercase py-3  flex ' +
                     (window.location.href.indexOf('/load-monitor') !== -1
                       ? 'text-lightBlue-500 hover:text-lightBlue-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
@@ -179,11 +194,11 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      'fas fa-tools mr-2 text-sm ' +
+                      'fas fa-tools mr-3 text-sm ' +
                       (window.location.href.indexOf('/load-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                     }
                   ></i>{' '}
-                  Pneumatics Load
+                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Pneumatics Load</p>
                 </Link>
               </li>
 
@@ -191,7 +206,7 @@ export default function Sidebar() {
                 <Link
                   to="/notifications"
                   className={
-                    'text-xs uppercase py-3  block ' +
+                    'text-xs uppercase py-3  flex ' +
                     (window.location.href.indexOf('/notifications') !== -1
                       ? 'text-lightBlue-500 hover:text-lightBlue-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
@@ -199,11 +214,11 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      'fas fa-bell mr-2 text-sm ' +
+                      'fas fa-bell mr-3 text-sm ' +
                       (window.location.href.indexOf('/notifications') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                     }
                   ></i>{' '}
-                  Notifications
+                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Notifications</p>
                 </Link>
               </li>
             </ul>
@@ -212,7 +227,7 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full " />
             {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-400 text-md uppercase  block pt-4 mt-10 pb-4 no-underline">
-              Settings
+              <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Settings</p>
             </h6>
             {/* Navigation */}
 
@@ -221,7 +236,7 @@ export default function Sidebar() {
                 <Link
                   to="/settings"
                   className={
-                    'text-xs uppercase py-3 block ' +
+                    'text-xs uppercase py-3 flex ' +
                     (window.location.href.indexOf('/settings') !== -1
                       ? 'text-lightBlue-500 hover:text-lightBlue-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
@@ -229,22 +244,24 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      'fas fa-table mr-2 text-sm ' +
+                      'fas fa-table mr-3 text-sm ' +
                       (window.location.href.indexOf('/settings') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                     }
                   ></i>{' '}
-                  Settings
+                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Settings</p>
                 </Link>
               </li>
               <li className="items-center">
-                <Link to="/log-in" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3  block">
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i> Login
+                <Link to="/log-in" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3  flex">
+                  <i className="fas fa-fingerprint text-blueGray-400 mr-3 text-sm"></i>{' '}
+                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> login</p>
                 </Link>
               </li>
 
               <li className="items-center">
-                <Link to="/register" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3 block">
-                  <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i> Register
+                <Link to="/register" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3 flex">
+                  <i className="fas fa-clipboard-list text-blueGray-300 mr-4 text-sm"></i>{' '}
+                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> register</p>
                 </Link>
               </li>
             </ul>
