@@ -20,13 +20,14 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
   useEffect(() => {
     console.log("time weekArray",time.weekArr);
     setDayArray(time.dayArr);
-    setConsumptionDay(consumption.day);
-    setFlowDay(flow.day);
     setWeekArray(time.weekArr);
-    setConsumptionWeek(consumption.week);
-    setFlowWeek(flow.week);
     setMonthArray(time.monthArr);
+    setConsumptionDay(consumption.day);
+    setConsumptionWeek(consumption.week);
     setConsumptionMonth(consumption.month);
+    setFlowDay(flow.day);
+    setFlowWeek(flow.week);
+    setFlowMonth(flow.month);
   }, [time, consumption, flow])
   return (
     <>
@@ -97,18 +98,12 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                   <CardLineChartDay time={dayArray} consumption={consumptionDay} flow={flowDay} />
                 </div>
-                {/* <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <CardLineChartWeek
-                    data={energy_data}
-                    data_2={energy_data_2}
-                  />
+                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                  <CardLineChartWeek time={weekArray} consumption={consumptionWeek} flow={flowWeek} />
                 </div>
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <CardLineChartMonth
-                    data={energy_data}
-                    data_2={energy_data_2}
-                  />
-                </div> */}
+                  <CardLineChartMonth time={monthArray} consumption={consumptionMonth} flow={flowMonth} />
+                </div>
               </div>
             </div>
           </div>

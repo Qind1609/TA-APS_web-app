@@ -1,80 +1,32 @@
 import React from "react";
-export default function CardLineChartMonth({ data, data_2 }) {
+export default function CardLineChartMonth({ time, consumption, flow }) {
+  console.log(time);
+  console.log(consumption);
+  console.log(flow);
   React.useEffect(() => {
     let config = {
       type: "line",
       data: {
-        labels: [
-          "3/3/2021",
-          "2/3/2021",
-          "3/3/2021",
-          "4/3/2021",
-          "5/3/2021",
-          "6/3/2021",
-          "7/3/2021",
-          "8/3/2021",
-          "9/3/2021",
-          "10/3/2021",
-          "11/3/2021",
-          "12/3/2021",
-          "13/3/2021",
-          "14/3/2021",
-          "15/3/2021",
-          "16/3/2021",
-          "17/3/2021",
-          "18/3/2021",
-          "19/3/2021",
-          "20/3/2021",
-          "21/3/2021",
-          "22/3/2021",
-          "23/3/2021",
-          "24/3/2021",
-          "25/3/2021",
-          "26/3/2021",
-          "27/3/2021",
-          "28/3/2021",
-          "29/3/2021",
-          "30/3/2021",
-          "1/4/2021",
-          "2/4/2021",
-          "3/4/2021",
-          "4/4/2021",
-          "5/4/2021",
-          "6/4/2021",
-          "7/4/2021",
-          "8/4/2021",
-          "9/4/2021",
-          "10/4/2021",
-          "11/3/2021",
-          "12/4/2021",
-          "13/4/2021",
-          "14/4/2021",
-          "8/4/2021",
-          "9/4/2021",
-          "10/4/2021",
-          "11/3/2021",
-          "12/4/2021",
-          "13/4/2021",
-          "14/4/2021",
-        ],
+        labels: time,
         datasets: [
           {
-            label: new Date().getFullYear(),
-            backgroundColor: "#3FFFF",
-            borderColor: "#33FFFF",
-            data: data,
-            fill: false,
-            tension: 0.4,
-          },
-          {
-            label: new Date().getFullYear(),
+            label: "L",
             backgroundColor: "#CCFF00",
             borderColor: "#CCFF00",
-            data: data_2,
+            data: flow,
             fill: false,
-            yAxesID: "percentage",
-            tension: 0.4,
+            tension: 0.2,
+            yAxesID: "y",
           },
+          {
+            label: "kWh",
+            backgroundColor: "#3FFFF",
+            borderColor: "#33FFFF",
+            data: consumption,
+            fill: false,
+            tension: 0.2,
+            yAxisID: "y1",
+          }
         ],
       },
       options: {
@@ -115,65 +67,72 @@ export default function CardLineChartMonth({ data, data_2 }) {
           intersect: true,
         },
         scales: {
-          percentage: {
-            position: "right",
-          },
-
           x: {
             min: 0,
             max: 10,
           },
-          xAxes: [
-            {
-              ticks: {
-                fontColor: "rgba(255,255,255,.7)",
-              },
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: "",
-                fontColor: "white",
-              },
-              gridLines: {
-                borderDash: [2],
-                borderDashOffset: [2],
-                color: "rgba(33, 37, 41, 0.3)",
-                zeroLineColor: "rgba(33, 37, 41, 0.3)",
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            min: 0,
+          },
+          y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            min: 0,
+          },
+          // xAxes: [
+          //   {
+          //     ticks: {
+          //       fontColor: "rgba(255,255,255,.7)",
+          //     },
+          //     display: true,
+          //     scaleLabel: {
+          //       display: false,
+          //       labelString: "",
+          //       fontColor: "white",
+          //     },
+          //     gridLines: {
+          //       borderDash: [2],
+          //       borderDashOffset: [2],
+          //       color: "rgba(33, 37, 41, 0.3)",
+          //       zeroLineColor: "rgba(33, 37, 41, 0.3)",
+          //       zeroLineBorderDash: [2],
+          //       zeroLineBorderDashOffset: [2],
+          //     },
+          //   },
+          // ],
 
-          yAxes: [
-            {
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: "Value",
-              },
-              gridLines: {
-                borderDash: [2],
-                drawBorder: false,
-                borderDashOffset: [2],
-                color: "rgba(33, 37, 41, 0.2)",
-                zeroLineColor: "rgba(33, 37, 41, 0.15)",
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
+          // yAxes: [
+          //   {
+          //     display: true,
+          //     scaleLabel: {
+          //       display: false,
+          //       labelString: "Value",
+          //     },
+          //     gridLines: {
+          //       borderDash: [2],
+          //       drawBorder: false,
+          //       borderDashOffset: [2],
+          //       color: "rgba(33, 37, 41, 0.2)",
+          //       zeroLineColor: "rgba(33, 37, 41, 0.15)",
+          //       zeroLineBorderDash: [2],
+          //       zeroLineBorderDashOffset: [2],
+          //     },
+          //   },
+          // ],
         },
       },
     };
 
-    let ctx = document.getElementById("monthchartLine").getContext("2d");
-    window.myLine = new Chart(ctx, config);
-  }, [data]);
+    let ctx = document.getElementById("monthChartLineHome").getContext("2d");
+    window.chartMonth && window.chartMonth.destroy();
+    window.chartMonth = new Chart(ctx, config);
+  }, [time, consumption, flow]);
   return (
     <>
-      {/* <ExportPopup /> */}
-
       <div className="relative flex flex-col min-w-0 break-words bg-blueGray-700 w-full">
         <div className="rounded-t mb-0 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
@@ -190,7 +149,7 @@ export default function CardLineChartMonth({ data, data_2 }) {
         </div>
         <div className="px-4 flex-auto">
           <div className="relative h-screen">
-            <canvas id="monthchartLine"></canvas>
+            <canvas id="monthChartLineHome"></canvas>
           </div>
         </div>
       </div>
