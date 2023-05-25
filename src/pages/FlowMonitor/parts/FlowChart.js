@@ -1,36 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import CardLineChart from './CardLineChart';
+import CardBarChart from './CardBarChart';
 
-
-const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
+const ChartFlow = ({ time = {}, flow = [] }) => {
   const [openTab, setOpenTab] = useState(1);
   const [dayArray, setDayArray] = useState([]);
   const [weekArray, setWeekArray] = useState([]);
   const [monthArray, setMonthArray] = useState([]);
-  const [consumptionDay, setConsumptionDay] = useState([]);
   const [flowDay, setFlowDay] = useState([]);
-  const [consumptionWeek, setConsumptionWeek] = useState([]);
   const [flowWeek, setFlowWeek] = useState([]);
-  const [consumptionMonth, setConsumptionMonth] = useState([]);
   const [flowMonth, setFlowMonth] = useState([]);
-
   useEffect(() => {
     setDayArray(time.dayArr);
     setWeekArray(time.weekArr);
     setMonthArray(time.monthArr);
-    setConsumptionDay(consumption.day);
-    setConsumptionWeek(consumption.week);
-    setConsumptionMonth(consumption.month);
     setFlowDay(flow.day);
     setFlowWeek(flow.week);
     setFlowMonth(flow.month);
-  }, [time, consumption, flow])
+  }, [time, flow])
   return (
-    <>
       <div className=''>
-      <div className='w-full sm:mt-20'>
-          <ul className='flex mb-0 list-none mr-4 flex-row' role='tablist'>
-            <li className='-mb-px  last:mr-0 flex-auto text-center'>
+        <div className='w-full sm:mt-20'>
+          <ul className='flex mb-0 list-none flex-row' role='tablist'>
+            <li className='-mb-px last:mr-0 flex-auto text-center'>
               <a
                 className={
                   'text-xs font-bold uppercase py-2 shadow-lg rounded-full mx-4 block leading-normal ' +
@@ -88,25 +79,24 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
               </a>
             </li>
           </ul>
-          <div className='relative p-4 bg-blueGray-500 flex flex-col min-w-0 break-words w-full'>
+          <div className='relative p-4 flex flex-col min-w-0 break-words w-full'>
             <div className=''>
-              <div className='tab-content p-4 rounded-md tab-space'>
+              <div className='tab-content tab-space'>
                 <div className={openTab === 1 ? 'block' : 'hidden'} id='link1'>
-                  <CardLineChart time={dayArray} consumption={consumptionDay} flow={flowDay} canvasID='dayChartLineHome'/>
+                  <CardBarChart time={dayArray} flow={flowDay} canvasID='dayChartBarFlow'/>
                 </div>
                 <div className={openTab === 2 ? 'block' : 'hidden'} id='link2'>
-                  <CardLineChart time={weekArray} consumption={consumptionWeek} flow={flowWeek} canvasID='weekChartLineHome'/>
+                  <CardBarChart time={weekArray} flow={flowWeek} canvasID='weekChartBarFlow'/>
                 </div>
                 <div className={openTab === 3 ? 'block' : 'hidden'} id='link3'>
-                  <CardLineChart time={monthArray} consumption={consumptionMonth} flow={flowMonth} canvasID='monthChartLineHome'/>
+                  <CardBarChart time={monthArray} flow={flowMonth} canvasID='monthChartBarFlow'/>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
   );
 };
 
-export default ChartHome;
+export default ChartFlow;
