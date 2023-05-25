@@ -29,7 +29,7 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
     <>
       <div className=''>
       <div className='w-full sm:mt-20'>
-          <ul className='flex mb-0 list-none mr-4 flex-row' role='tablist'>
+          <ul className='flex mb-0 list-none flex-row' role='tablist'>
             <li className='-mb-px  last:mr-0 flex-auto text-center'>
               <a
                 className={
@@ -68,10 +68,10 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
                 Weeks
               </a>
             </li>
-            <li className='-mb-px mx-2 rounded-full last:mr-0 flex-auto text-center'>
+            <li className='-mb-px mr-2 rounded-full last:mr-0 flex-auto text-center'>
               <a
                 className={
-                  'text-xs font-bold rounded-full ml-4 uppercase py-2 shadow-lg block leading-normal ' +
+                  'text-xs font-bold rounded-full mx-4 uppercase py-2 shadow-lg block leading-normal ' +
                   (openTab === 3
                     ? 'text-white bg-blueGray-600'
                     : 'text-blueGray-600 bg-blueGray-400')
@@ -88,9 +88,9 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
               </a>
             </li>
           </ul>
-          <div className='relative p-4 bg-blueGray-500 flex flex-col min-w-0 break-words w-full'>
+          <div className='relative p-4 flex flex-col min-w-0 break-words w-full'>
             <div className=''>
-              <div className='tab-content p-4 rounded-md tab-space'>
+              <div className='tab-content tab-space'>
                 <div className={openTab === 1 ? 'block' : 'hidden'} id='link1'>
                   <CardLineChart time={dayArray} consumption={consumptionDay} flow={flowDay} canvasID='dayChartLineHome'/>
                 </div>

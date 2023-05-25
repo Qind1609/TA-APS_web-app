@@ -1,6 +1,7 @@
 import React from 'react';
-import ChartFlow from './parts/FlowChart';
 import Layout from 'layouts/layout';
+import ChartFlow from './parts/FlowChart';
+
 
 export default function FlowPage() {
   console.log(global.time);

@@ -59,10 +59,10 @@ const ChartFlow = ({ time = {}, flow = [] }) => {
                 Weeks
               </a>
             </li>
-            <li className='-mb-px mx-2 rounded-full last:mr-0 flex-auto text-center'>
+            <li className='-mb-px mr-2 rounded-full last:mr-0 flex-auto text-center'>
               <a
                 className={
-                  'text-xs font-bold rounded-full ml-4 uppercase py-2 shadow-lg block leading-normal ' +
+                  'text-xs font-bold rounded-full mx-4 uppercase py-2 shadow-lg block leading-normal ' +
                   (openTab === 3
                     ? 'text-white bg-blueGray-600'
                     : 'text-blueGray-600 bg-blueGray-400')
