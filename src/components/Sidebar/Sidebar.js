@@ -47,7 +47,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
     <>
       <nav
         className={`md:left-0 md:block bg-blueGray-800  md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl lex flex-wrap items-center justify-between relative m-2 rounded-lg  z-10 py-4 px-6
-        ${isSidebarOpen ? 'md:w-5 lg:w-5 xl:w-5' : 'md:w-64'}  
+        ${isSidebarOpen ? 'xxl:w-5 md:w-5 lg:w-5 xl:w-5' : 'md:w-64'}  
         `}
       >
         <button onClick={handleButtonClick} className="button">

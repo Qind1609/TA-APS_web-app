@@ -33,7 +33,6 @@ const options = {
 
 export default function CardTable({ color }) {
   return (
-    <>
       <MUIDataTable
         className={
           'relative table-h-screen flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded ' +
@@ -44,7 +43,6 @@ export default function CardTable({ color }) {
         columns={columns}
         options={options}
       />
-    </>
   );
 }
 

@@ -4249,7 +4249,7 @@ select {
     width: 50%;
   }
   .xl\:w-5 {
-    width: 4.5rem;
+    width: 5.5rem;
   }
   .xl\:w-8\/12 {
     width: 66.666667%;
@@ -4257,6 +4257,9 @@ select {
 }
 
 @media (min-width: 1536px) {
+  .xxl\:w-5 {
+    width: 4.5rem;
+  }
 }
 
 @media (min-width: 640px) {

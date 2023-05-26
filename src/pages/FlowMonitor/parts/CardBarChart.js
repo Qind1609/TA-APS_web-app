@@ -8,7 +8,6 @@ export default function CardBarChart({ time, flow, canvasID }) {
   useEffect(() => {
     let chartCanvas = document.getElementById(canvasID);
     let ctx = chartCanvas.getContext('2d');
-
     let config = {
       type: 'bar',
       data: {
