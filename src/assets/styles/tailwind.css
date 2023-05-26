@@ -4411,6 +4411,11 @@ select {
     height: 758px;
   }
 }
+@media (min-height: 975px) {
+  .h-screen {
+    height: 720px;
+  }
+}
 @media (min-height: 1000px) {
   .h-screen {
     height: 760px;
