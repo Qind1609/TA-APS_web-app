@@ -37,7 +37,7 @@ class Client {
     return null;
   }
 
-  async api({ path, method, params, data, headers, responseType, host = API_END_POINT }) {
+  async api({ path, method, params, data, headers, responseType, host = 'http://192.168.32.106:1609' }) {
     // verify
     const error = this._verifyApi(path, method);
     if (error) throw error;

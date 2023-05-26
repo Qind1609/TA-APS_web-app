@@ -4341,17 +4341,17 @@ select {
 
 @media (min-height: 768px) {
   .h-screen {
-    height: 550px;
+    height: 530px;
   }
 }
 @media (min-height: 802px) {
   .h-screen {
-    height: 555.5px;
+    height: 560px;
   }
 }
 @media (min-height: 834px) {
   .h-screen {
-    height: 632px;
+    height: 595px;
   }
 }
 @media (min-height: 800px) {
@@ -4376,12 +4376,12 @@ select {
 }
 @media (min-height: 878px) {
   .h-screen {
-    height: 676px;
+    height: 635px;
   }
 }
 @media (min-height: 885px) {
   .h-screen {
-    height: 683px;
+    height: 643px;
   }
 }
 @media (min-height: 896px) {
@@ -4396,27 +4396,27 @@ select {
 }
 @media (min-height: 915px) {
   .h-screen {
-    height: 727px;
+    height: 675px;
   }
 }
 @media (min-height: 935px) {
   .h-screen {
-    height: 685px;
+    height: 695px;
   }
 }
 @media (min-height: 956px) {
   .h-screen {
-    height: 754px;
+    height: 714px;
   }
 }
 @media (min-height: 960px) {
   .h-screen {
-    height: 758px;
+    height: 718px;
   }
 }
 @media (min-height: 975px) {
   .h-screen {
-    height: 720px;
+    height: 730px;
   }
 }
 @media (min-height: 1000px) {
@@ -4426,7 +4426,17 @@ select {
 }
 @media (min-height: 1007px) {
   .h-screen {
-    height: 805px;
+    height: 765px;
+  }
+}
+@media (min-height: 1008px) {
+  .h-screen {
+    height: 770px;
+  }
+}
+@media (min-height: 1009px) {
+  .h-screen {
+    height: 775px;
   }
 }
 @media (min-height: 1007px) {
@@ -4436,12 +4446,27 @@ select {
 }
 @media (min-height: 1024px) {
   .h-screen {
-    height: 774px;
+    height: 784px;
+  }
+}
+@media (min-height: 1040px) {
+  .h-screen {
+    height: 794px;
   }
 }
 @media (min-height: 1050px) {
   .h-screen {
     height: 800px;
+  }
+}
+@media (min-height: 1050px) {
+  .h-screen {
+    height: 810px;
+  }
+}
+@media (min-height: 1070px) {
+  .h-screen {
+    height: 820px;
   }
 }
 @media (min-height: 1024px) {
@@ -4451,7 +4476,38 @@ select {
 }
 @media (min-height: 1080px) {
   .h-screen {
-    height: 819px;
+    height: 829px;
+  }
+}
+
+@media (min-height: 1090px) {
+  .h-screen {
+    height: 849px;
+  }
+}
+@media (min-height: 1106px) {
+  .h-screen {
+    height: 855px;
+  }
+}
+@media (min-height: 1115px) {
+  .h-screen {
+    height: 875px;
+  }
+}
+@media (min-height: 1129px) {
+  .h-screen {
+    height: 890px;
+  }
+}
+@media (min-height: 1140px) {
+  .h-screen {
+    height: 900px;
+  }
+}
+@media (min-height: 1152px) {
+  .h-screen {
+    height: 915px;
   }
 }
 @media (min-height: 1180px) {
