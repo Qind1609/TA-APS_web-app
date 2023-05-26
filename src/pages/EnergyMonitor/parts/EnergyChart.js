@@ -1,16 +1,29 @@
-import React from 'react';
-import CardLineChartDay from './CardLineChartDay';
-import CardLineChartMonth from './CardLineChartMonth';
-import CardLineChartWeek from './CardLineChartWeek';
+import React, { useState, useEffect } from 'react';
+import CardLineChart from './CardLineChart';
 
-const ChartEnergy = ({ energy_data, energy_data_2 }) => {
-  const [openTab, setOpenTab] = React.useState(1);
+const ChartEnergy = ({ time = {}, consumption = [] }) => {
+  const [openTab, setOpenTab] = useState(1);
+  const [dayArray, setDayArray] = useState([]);
+  const [weekArray, setWeekArray] = useState([]);
+  const [monthArray, setMonthArray] = useState([]);
+  const [consumptionDay, setConsumptionDay] = useState([]);
+  const [consumptionWeek, setConsumptionWeek] = useState([]);
+  const [consumptionMonth, setConsumptionMonth] = useState([]);
+
+  useEffect(() => {
+    setDayArray(time.dayArr);
+    setWeekArray(time.weekArr);
+    setMonthArray(time.monthArr);
+    setConsumptionDay(consumption.day);
+    setConsumptionWeek(consumption.week);
+    setConsumptionMonth(consumption.month);
+  }, [time, consumption]);
   return (
     <>
       <div className="">
-        <div className="w-full sm:mt-20 ">
-          <ul className="flex mb-2 list-none mr-4   flex-row" role="tablist">
-            <li className="-mb-px  last:mr-0 flex-auto text-center">
+        <div className="w-full">
+          <ul className="flex mb-0 list-none flex-row" role="tablist">
+            <li className="-mb-px last:mr-0 flex-auto text-center">
               <a
                 className={
                   'text-xs font-bold uppercase py-2 shadow-lg rounded-full mx-4  block leading-normal ' +
@@ -30,7 +43,7 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
             <li className="-mb-px last:mr-0 flex-auto text-center">
               <a
                 className={
-                  'text-xs font-bold rounded-full uppercase  py-2 shadow-lg  block leading-normal ' +
+                  'text-xs font-bold rounded-full uppercase py-2 shadow-lg block leading-normal ' +
                   (openTab === 2 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
                 }
                 onClick={e => {
@@ -44,10 +57,10 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
                 Weeks
               </a>
             </li>
-            <li className="-mb-px mx-2 rounded-full last:mr-0 flex-auto text-center">
+            <li className="-mb-px mr-2 rounded-full last:mr-0 flex-auto text-center">
               <a
                 className={
-                  'text-xs font-bold rounded-full ml-4 uppercase py-2 shadow-lg block leading-normal ' +
+                  'text-xs font-bold rounded-full mx-4 uppercase py-2 shadow-lg block leading-normal ' +
                   (openTab === 3 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
                 }
                 onClick={e => {
@@ -62,17 +75,17 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
               </a>
             </li>
           </ul>
-          <div className="relative  bg-blueGray-500 flex flex-col min-w-0 break-words w-full">
+          <div className="relative p-4 flex flex-col min-w-0 break-words w-full">
             <div className="">
-              <div className="tab-content p-4 rounded-md tab-space">
+              <div className="tab-content tab-space">
                 <div className={openTab === 1 ? 'block' : 'hidden'} id="link1">
-                  <CardLineChartDay data={energy_data} data_2={energy_data_2} />
+                  <CardLineChart time={dayArray} consumption={consumptionDay} canvasID="dayChartLineEnergy" />
                 </div>
                 <div className={openTab === 2 ? 'block' : 'hidden'} id="link2">
-                  <CardLineChartWeek data={energy_data} data_2={energy_data_2} />
+                  <CardLineChart time={weekArray} consumption={consumptionWeek} canvasID="weekChartLineEnergy" />
                 </div>
                 <div className={openTab === 3 ? 'block' : 'hidden'} id="link3">
-                  <CardLineChartMonth data={energy_data} data_2={energy_data_2} />
+                  <CardLineChart time={monthArray} consumption={consumptionMonth} canvasID="monthChartLineEnergy" />
                 </div>
               </div>
             </div>

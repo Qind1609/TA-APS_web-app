@@ -149,7 +149,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                   className={
                     'text-xs uppercase py-3 flex ' +
                     (window.location.href.indexOf('/home') !== -1
-                      ? 'text-lightBlue-500 hover:text-lightBlue-600'
+                      ? 'text-sky-500 hover:text-sky-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
                   }
                 >
@@ -168,7 +168,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                   className={
                     'text-xs uppercase py-3  flex ' +
                     (window.location.href.indexOf('/energy-monitor') !== -1
-                      ? 'text-lightBlue-500 hover:text-lightBlue-600'
+                      ? 'text-sky-500 hover:text-sky-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
                   }
                 >
@@ -188,7 +188,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                   className={
                     'text-xs uppercase py-3  flex ' +
                     (window.location.href.indexOf('/load-monitor') !== -1
-                      ? 'text-lightBlue-500 hover:text-lightBlue-600'
+                      ? 'text-sky-500 hover:text-sky-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
                   }
                 >
@@ -208,7 +208,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                   className={
                     'text-xs uppercase py-3  flex ' +
                     (window.location.href.indexOf('/notifications') !== -1
-                      ? 'text-lightBlue-500 hover:text-lightBlue-600'
+                      ? 'text-sky-500 hover:text-sky-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
                   }
                 >
@@ -238,7 +238,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                   className={
                     'text-xs uppercase py-3 flex ' +
                     (window.location.href.indexOf('/settings') !== -1
-                      ? 'text-lightBlue-500 hover:text-lightBlue-600'
+                      ? 'text-sky-500 hover:text-sky-600'
                       : 'text-blueGray-500 hover:text-blueGray-500')
                   }
                 >

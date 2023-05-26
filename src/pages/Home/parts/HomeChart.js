@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
-import CardLineChartDay from "./CardLineChartDay";
-import CardLineChartMonth from "./CardLineChartMonth";
-import CardLineChartWeek from "./CardLineChartWeek";
-
-const utils = require('../../../helpers/utils');
+import React, { useState, useEffect } from 'react';
+import CardLineChart from './CardLineChart';
 
 const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
   const [openTab, setOpenTab] = useState(1);
@@ -18,30 +14,28 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
   const [flowMonth, setFlowMonth] = useState([]);
 
   useEffect(() => {
-    console.log("time weekArray",time.weekArr);
     setDayArray(time.dayArr);
-    setConsumptionDay(consumption.day);
-    setFlowDay(flow.day);
     setWeekArray(time.weekArr);
-    setConsumptionWeek(consumption.week);
-    setFlowWeek(flow.week);
     setMonthArray(time.monthArr);
+    setConsumptionDay(consumption.day);
+    setConsumptionWeek(consumption.week);
     setConsumptionMonth(consumption.month);
-  }, [time, consumption, flow])
+    setFlowDay(flow.day);
+    setFlowWeek(flow.week);
+    setFlowMonth(flow.month);
+  }, [time, consumption, flow]);
   return (
     <>
       <div className="">
-        <div className="w-full sm:mt-15">
-          <ul className="flex mb-0 list-none   flex-row" role="tablist">
+        <div className="w-full">
+          <ul className="flex mb-0 list-none flex-row" role="tablist">
             <li className="-mb-px  last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase py-2 shadow-lg  block leading-normal " +
-                  (openTab === 1
-                    ? "text-white bg-blueGray-600"
-                    : "text-blueGray-600 bg-blueGray-400 ")
+                  'text-xs font-bold uppercase py-2 shadow-lg rounded-full mx-4 block leading-normal ' +
+                  (openTab === 1 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
                 }
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   setOpenTab(1);
                 }}
@@ -55,12 +49,10 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
             <li className="-mb-px last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase  py-2 shadow-lg  block leading-normal " +
-                  (openTab === 2
-                    ? "text-white bg-blueGray-600"
-                    : "text-blueGray-600 bg-blueGray-400")
+                  'text-xs font-bold rounded-full uppercase py-2 shadow-lg block leading-normal ' +
+                  (openTab === 2 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
                 }
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   setOpenTab(2);
                 }}
@@ -71,15 +63,13 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
                 Weeks
               </a>
             </li>
-            <li className="-mb-px  last:mr-0 flex-auto text-center">
+            <li className="-mb-px mr-2 rounded-full last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase py-2 shadow-lg block leading-normal " +
-                  (openTab === 3
-                    ? "text-white bg-blueGray-600"
-                    : "text-blueGray-600 bg-blueGray-400")
+                  'text-xs font-bold rounded-full mx-4 uppercase py-2 shadow-lg block leading-normal ' +
+                  (openTab === 3 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
                 }
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   setOpenTab(3);
                 }}
@@ -94,21 +84,30 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
           <div className="relative p-4 flex flex-col min-w-0 break-words w-full">
             <div className="">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <CardLineChartDay time={dayArray} consumption={consumptionDay} flow={flowDay} />
-                </div>
-                {/* <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <CardLineChartWeek
-                    data={energy_data}
-                    data_2={energy_data_2}
+                <div className={openTab === 1 ? 'block' : 'hidden'} id="link1">
+                  <CardLineChart
+                    time={dayArray}
+                    consumption={consumptionDay}
+                    flow={flowDay}
+                    canvasID="dayChartLineHome"
                   />
                 </div>
-                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <CardLineChartMonth
-                    data={energy_data}
-                    data_2={energy_data_2}
+                <div className={openTab === 2 ? 'block' : 'hidden'} id="link2">
+                  <CardLineChart
+                    time={weekArray}
+                    consumption={consumptionWeek}
+                    flow={flowWeek}
+                    canvasID="weekChartLineHome"
                   />
-                </div> */}
+                </div>
+                <div className={openTab === 3 ? 'block' : 'hidden'} id="link3">
+                  <CardLineChart
+                    time={monthArray}
+                    consumption={consumptionMonth}
+                    flow={flowMonth}
+                    canvasID="monthChartLineHome"
+                  />
+                </div>
               </div>
             </div>
           </div>

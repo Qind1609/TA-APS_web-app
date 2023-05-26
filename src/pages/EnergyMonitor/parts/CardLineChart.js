@@ -1,29 +1,27 @@
 import React, { useEffect } from 'react';
-window.chart = {
-  chartDay: null,
-  chartMonth: null,
-  chartWeek: null
-};
-export default function CardBarChart({ time, flow, canvasID }) {
+
+export default function CardLineChart({ time, consumption, canvasID }) {
   useEffect(() => {
     let chartCanvas = document.getElementById(canvasID);
     let ctx = chartCanvas.getContext('2d');
+    let chartHeight = chartCanvas.clientHeight;
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
+    gradient.addColorStop(0, 'rgba(1,185,241,1)');
+    gradient.addColorStop(1, 'rgba(1,185,241,0)');
 
     let config = {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: time,
         datasets: [
           {
-            label: 'L',
-            backgroundColor: function (context) {
-              var index = context.dataIndex;
-              var value = context.dataset.data[index];
-              return value > 80 ? '#CC0000' : '#33FFFF';
-            },
-            borderColor: '#19F5B7',
-            data: flow,
+            label: 'kWh',
+            backgroundColor: gradient,
+            borderColor: '#048cd0',
+            data: consumption,
             fill: true,
+            tension: 0.2,
             yAxisID: 'y'
           }
         ]
@@ -79,32 +77,32 @@ export default function CardBarChart({ time, flow, canvasID }) {
         }
       }
     };
-    if (canvasID === 'dayChartBarFlow') {
+    if (canvasID === 'dayChartLineEnergy') {
       if (window.chart.chartDay) {
         window.chart.chartDay.destroy();
       }
       window.chart.chartDay = new Chart(ctx, config);
     }
-    if (canvasID === 'weekChartBarFlow') {
+    if (canvasID === 'weekChartLineEnergy') {
       if (window.chart.chartWeek) {
         window.chart.chartWeek.destroy();
       }
       window.chart.chartWeek = new Chart(ctx, config);
     }
-    if (canvasID === 'monthChartBarFlow') {
+    if (canvasID === 'monthChartLineEnergy') {
       if (window.chart.chartMonth) {
         window.chart.chartMonth.destroy();
       }
       window.chart.chartMonth = new Chart(ctx, config);
     }
-  }, [time, flow]);
+  }, [time, consumption]);
   return (
     <>
       <div className="rounded-md relative flex flex-col min-w-0 break-words bg-white w-full">
         <div className="rounded-t mb-6 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
-              <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">FLOW</h6>
+              <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">ENERGY</h6>
               <h2 className="text-blueGray-700 text-xl font-semibold">MONITOR</h2>
             </div>
           </div>

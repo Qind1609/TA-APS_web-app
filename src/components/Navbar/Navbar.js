@@ -9,7 +9,7 @@ export default function Navbar({ handleButtonClick }) {
   return (
     <>
       {/* Navbar */}
-      <nav className="absolute top-0 left-0 w-full z-10 mx-4 my-2 rounded-lg bg-blueGray-800 md:flex-row md:flex-nowrap md:justify-start flex items-center sm:p-4">
+      <nav className=" mx-4 my-2 rounded-lg bg-blueGray-800 md:flex-row md:flex-nowrap md:justify-start flex items-center sm:p-4">
         <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-4 px-4">
           {/* Brand */}
           <a

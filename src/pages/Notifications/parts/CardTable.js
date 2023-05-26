@@ -1,488 +1,57 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import MUIDataTable from 'mui-datatables';
+
+const columns = ['Time', 'Type Notifiction', 'Status', 'Percent'];
+
+const message = [
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '10%'],
+  ['11:27:46', 'Năng lượng tăng bất thường', 'Tăng', '34%'],
+  ['11:29:11', 'Năng lượng tăng bất thường', 'Tăng', '69%'],
+  ['14:27:40', 'Năng lượng tăng bất thường', 'Tăng', '32%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '12%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '14%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '23%'],
+  ['12:27:44', 'Năng lượng tăng bất thường', 'Tăng', '45%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '37%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '76%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '5%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '1%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '167%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '45%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '67%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '12%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '1%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '14%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '78%'],
+  ['11:27:44', 'Năng lượng tăng bất thường', 'Tăng', '34%']
+];
+
+const options = {
+  filterType: 'checkbox'
+};
 
 export default function CardTable({ color }) {
   return (
-      <div
+    <>
+      <MUIDataTable
         className={
-          `relative table-h-screen flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded
-          ${(color === "light" ? "bg-white" : "bg-blueGray-700 text-white")}`
+          'relative table-h-screen flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded ' +
+          (color === 'light' ? 'bg-white' : 'bg-blueGray-700 text-white')
         }
-      >
-        <div className="rounded-t  mb-0 px-4 py-3 border-0">
-          <div className="flex flex-wrap items-center">
-            <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-              <h3
-                className={
-                  `font-semibold text-lg
-                  ${(color === "light" ? "text-blueGray-700" : "text-white")}`
-                }
-              >
-                Notification
-              </h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="block w-full overflow-x-auto">
-          {/* Projects table */}
-          <table className="items-center w-full bg-transparent border-collapse">
-            <thead>
-              <tr>
-                <th
-                  className={
-                    `px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left
-                    ${(color === "light"
-                      ? "bg-blueGray-100 text-blueGray-500 border-blueGray-200"
-                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")}`
-                  }
-                >
-                  Time
-                </th>
-                <th
-                  className={
-                    `px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left
-                    ${(color === "light"
-                      ? "bg-blueGray-100 text-blueGray-500 border-blueGray-200"
-                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")}`
-                  }
-                >
-                  Message
-                </th>
-                <th
-                  className={
-                    `px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left
-                    ${(color === "light"
-                      ? "bg-blueGray-100 text-blueGray-500 border-blueGray-200"
-                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")}`
-                  }
-                >
-                  Status
-                </th>
-                <th
-                  className={
-                    `px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left
-                    ${(color === "light"
-                      ? "bg-blueGray-100 text-blueGray-500 border-blueGray-200"
-                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")}`
-                  }
-                >
-                  Percent
-                </th>
-              </tr>
-            </thead>
-            <tbody className="overflow-scroll">
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      `ml-3 font-bold ${(color === "light" ? "text-blueGray-600" : "text-white")}`
-                    }
-                  >
-                    11:27:44
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Năng lượng cao bất thường
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Tăng
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex">10%</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        title={'Notification'}
+        data={message}
+        columns={columns}
+        options={options}
+      />
+    </>
   );
 }
 
 CardTable.defaultProps = {
-  color: "light",
+  color: 'light'
 };
 
 CardTable.propTypes = {
-  color: PropTypes.oneOf(["light", "dark"]),
+  color: PropTypes.oneOf(['light', 'dark'])
 };

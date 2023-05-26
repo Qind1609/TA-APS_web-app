@@ -10,7 +10,7 @@ export default function HomePage() {
     <Layout>
       <div className="flex flex-wrap">
         <div className="w-full">
-          <div className="relative flex flex-col min-w-0 break-words  w-full rounded">
+          <div className="relative flex flex-col min-w-0 break-words w-full rounded">
             <ChartHome time={global.time} consumption={global.consumption} flow={global.flow} />
           </div>
         </div>

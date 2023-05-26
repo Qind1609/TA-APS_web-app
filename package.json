@@ -4,7 +4,11 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "7.1.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.2",
     "@popperjs/core": "^2.11.7",
     "@reduxjs/toolkit": "^1.9.5",
     "@tailwindcss/forms": "0.2.1",
@@ -17,6 +21,7 @@
     "craco-less": "^2.0.0",
     "dotenv-cli": "^5.1.0",
     "history": "^4.10.1",
+    "mui-datatables": "^4.3.0",
     "postcss": "8.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -34,6 +39,7 @@
   "scripts": {
     "win-start": "set REACT_APP_ENV=local dotenv -e .env.local && craco start",
     "start": "REACT_APP_ENV=local dotenv -e .env.local craco start",
+    "win-dev": "set REACT_APP_ENV=development dotenv -e .env.development && craco start",
     "dev": "REACT_APP_ENV=development dotenv -e .env.development craco start",
     "production": "REACT_APP_ENV=production dotenv -e .env.production craco start",
     "build": "craco build",
