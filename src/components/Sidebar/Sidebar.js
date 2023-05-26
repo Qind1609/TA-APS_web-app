@@ -47,7 +47,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
     <>
       <nav
         className={`md:left-0 md:block bg-blueGray-800  md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl lex flex-wrap items-center justify-between relative m-2 rounded-lg  z-10 py-4 px-6
-        ${isSidebarOpen ? 'md:w-1/5' : 'md:w-64'}  
+        ${isSidebarOpen ? 'md:w-5 lg:w-5 xl:w-5' : 'md:w-64'}  
         `}
       >
         <button onClick={handleButtonClick} className="button">
@@ -68,11 +68,11 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
 
           {/* Brand */}
           <Link
-            className={` text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
+            className={`hidden md:block text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
             ${isSidebarOpen ? 'hidden' : ''}`}
             to="/"
           >
-            eThink Alpha
+            Think Alpha
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">

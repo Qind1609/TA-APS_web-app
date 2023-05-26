@@ -9,7 +9,7 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
     <>
       <div className="">
         <div className="w-full sm:mt-20 ">
-          <ul className="flex mb-0 list-none mr-4   flex-row" role="tablist">
+          <ul className="flex mb-2 list-none mr-4   flex-row" role="tablist">
             <li className="-mb-px  last:mr-0 flex-auto text-center">
               <a
                 className={
@@ -62,7 +62,7 @@ const ChartEnergy = ({ energy_data, energy_data_2 }) => {
               </a>
             </li>
           </ul>
-          <div className="relative p-4 bg-blueGray-500 flex flex-col min-w-0 break-words w-full">
+          <div className="relative  bg-blueGray-500 flex flex-col min-w-0 break-words w-full">
             <div className="">
               <div className="tab-content p-4 rounded-md tab-space">
                 <div className={openTab === 1 ? 'block' : 'hidden'} id="link1">

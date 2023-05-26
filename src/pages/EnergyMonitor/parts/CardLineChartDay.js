@@ -1,11 +1,10 @@
 import React from 'react';
-
 export default function CardLineChartDay({ data, data_2 }) {
   React.useEffect(() => {
-    let ctx = document.getElementById("daychartLineDay").getContext("2d");
-    let chartCanvas = document.getElementById("daychartLineDay");
+    let ctx = document.getElementById('daychartLineDay').getContext('2d');
+    let chartCanvas = document.getElementById('daychartLineDay');
     let chartHeight = chartCanvas.clientHeight;
-    let chartCanvas_2 = document.getElementById("daychartLineDay");
+    let chartCanvas_2 = document.getElementById('daychartLineDay');
     let chartHeight_2 = chartCanvas_2.clientHeight;
 
     const gradient_2 = ctx.createLinearGradient(0, 0, 0, chartHeight_2);
@@ -15,7 +14,6 @@ export default function CardLineChartDay({ data, data_2 }) {
     const gradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
     gradient.addColorStop(0, 'rgba(1,185,241,1)');
     gradient.addColorStop(1, 'rgba(1,185,241,0)');
-
 
     let config = {
       type: 'line',
@@ -77,20 +75,20 @@ export default function CardLineChartDay({ data, data_2 }) {
           {
             label: new Date().getFullYear(),
             backgroundColor: gradient, // Put the gradient here as a fill color
-            borderColor: "#048cd0",
+            borderColor: '#048cd0',
             data: data,
             fill: true,
-            tension: 0.4,
+            tension: 0.4
           },
           {
             label: new Date().getFullYear(),
             backgroundColor: gradient_2,
-            borderColor: "#f1010c",
+            borderColor: '#f1010c',
             data: data_2,
             fill: true,
-            tension: 0.4,
-          },
-        ],
+            tension: 0.4
+          }
+        ]
       },
       options: {
         maintainAspectRatio: false,
@@ -178,7 +176,6 @@ export default function CardLineChartDay({ data, data_2 }) {
       }
     };
 
-
     window.chartDay && window.chartDay.destroy();
     window.chartDay = new Chart(ctx, config);
   }, [data]);
@@ -188,11 +185,8 @@ export default function CardLineChartDay({ data, data_2 }) {
         <div className="rounded-t mb-6 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
-              <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">
-                ENERGY
-              </h6>
+              <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">ENERGY</h6>
               <h2 className="text-blueGray-700 text-xl font-semibold">MONITORING</h2>
-
             </div>
           </div>
         </div>
