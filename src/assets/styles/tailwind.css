@@ -4032,7 +4032,7 @@ select {
     width: 16rem;
   }
   .md\:w-5 {
-    width: 5.5rem;
+    width: 4.5rem;
   }
 
   .md\:w-4\/12 {
@@ -4104,7 +4104,7 @@ select {
     order: 3;
   }
   .lg\:w-5 {
-    width: 5.5rem;
+    width: 4.5rem;
   }
 
   .lg\:mb-0 {
@@ -4249,7 +4249,7 @@ select {
     width: 50%;
   }
   .xl\:w-5 {
-    width: 5.5rem;
+    width: 4.5rem;
   }
   .xl\:w-8\/12 {
     width: 66.666667%;

@@ -54,7 +54,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
           <i className="fas fa-bars text-white md:block hidden font-semibold p-2"></i>
         </button>
         <div
-          className={`md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto
+          className={`md:flex-col md:items-stretch  md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto
          `}
         >
           {/* Toggler */}
@@ -68,8 +68,8 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
 
           {/* Brand */}
           <Link
-            className={`hidden md:block text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
-            ${isSidebarOpen ? 'hidden' : ''}`}
+            className={` text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
+            ${isSidebarOpen ? 'hidden' : 'block'}`}
             to="/"
           >
             Think Alpha
@@ -135,7 +135,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6
-              className={`md:min-w-full text-blueGray-400 text-md uppercase  pt-1 mt-6 pb-4 no-underline
+              className={`md:min-w-full text-blueGray-400 text-md uppercase  pt-1 mt-2 pb-4 no-underline
             ${isSidebarOpen ? 'hidden' : ''}`}
             >
               Monitors
@@ -226,7 +226,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
             {/* Divider */}
             <hr className="my-4 md:min-w-full " />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-400 text-md uppercase  block pt-4 mt-10 pb-4 no-underline">
+            <h6 className="md:min-w-full text-blueGray-400 text-md uppercase  block pt-4 mt-3 pb-4 no-underline">
               <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Settings</p>
             </h6>
             {/* Navigation */}
