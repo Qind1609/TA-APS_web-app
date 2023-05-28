@@ -88,7 +88,7 @@ export default function CardBarChart({ time=[], pressure=[] }) {
       <div className="rounded-t mb-6 px-4 pt-3 bg-transparent">
         <div className="flex flex-wrap items-center">
           <div className="relative w-full max-w-full flex-grow flex-1">
-            <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">TEMPERATURE</h6>
+            <h6 className="uppercase mt-3 text-blueGray-700 mb-1 text-xs font-semibold">PRESSURE</h6>
             <h2 className="text-blueGray-700 text-xl font-semibold">MONITOR</h2>
           </div>
         </div>

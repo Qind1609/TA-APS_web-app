@@ -7,7 +7,7 @@ export default function CardLineChart({ time=[], temperature=[] }) {
       labels: time,
       datasets: [
         {
-          label: 'Celcius Degree',
+          label: 'Celsius Degree',
           backgroundColor: 'red',
           borderColor: 'red',
           data: temperature,
