@@ -10,6 +10,15 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/styles/tailwind.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+window.chart = {
+  chartDay: null,
+  chartWeek: null,
+  chartMonth: null,
+  chartTemp: null,
+  chartPress: null,
+};
+
 root.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

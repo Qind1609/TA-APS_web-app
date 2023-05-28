@@ -1,5 +1,6 @@
 const reactAppPrefix = 'REACT_APP_';
 
+// eslint-disable-next-line
 const env = process.env;
 
 const config = {};

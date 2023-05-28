@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const Button = ({ onClick, name }) => {
   return (
     <div>

@@ -1,28 +1,32 @@
 import React, { useEffect } from 'react';
-window.chart = {
-  chartDay: null,
-  chartMonth: null,
-  chartWeek: null
-};
+
+const gradient = window['chartjs-plugin-gradient'];
+// eslint-disable-next-line
+Chart.register(gradient);
+
 export default function CardBarChart({ time, flow, canvasID }) {
   useEffect(() => {
-    let chartCanvas = document.getElementById(canvasID);
-    let ctx = chartCanvas.getContext('2d');
-    let config = {
+    const chartCanvas = document.getElementById(canvasID);
+    const ctx = chartCanvas.getContext('2d');
+    const config = {
       type: 'bar',
       data: {
         labels: time,
         datasets: [
           {
             label: 'L',
-            backgroundColor: function (context) {
-              var index = context.dataIndex;
-              var value = context.dataset.data[index];
-              return value > 80 ? '#CC0000' : '#33FFFF';
+            gradient: {
+              backgroundColor: {
+                axis: 'y',
+                colors: {
+                  0: 'rgba(1,185,241,0.4)',
+                  1000: 'rgba(1,185,241,0.8)'
+                }
+              },
             },
-            borderColor: '#19F5B7',
+            borderColor: '#048cd0',
             data: flow,
-            fill: true,
+            fill: 'start',
             yAxisID: 'y'
           }
         ]
@@ -82,23 +86,25 @@ export default function CardBarChart({ time, flow, canvasID }) {
       if (window.chart.chartDay) {
         window.chart.chartDay.destroy();
       }
+      // eslint-disable-next-line
       window.chart.chartDay = new Chart(ctx, config);
     }
     if (canvasID === 'weekChartBarFlow') {
       if (window.chart.chartWeek) {
         window.chart.chartWeek.destroy();
       }
+      // eslint-disable-next-line
       window.chart.chartWeek = new Chart(ctx, config);
     }
     if (canvasID === 'monthChartBarFlow') {
       if (window.chart.chartMonth) {
         window.chart.chartMonth.destroy();
       }
+      // eslint-disable-next-line
       window.chart.chartMonth = new Chart(ctx, config);
     }
   }, [time, flow]);
   return (
-    <>
       <div className="rounded-md relative flex flex-col min-w-0 break-words bg-white w-full">
         <div className="rounded-t mb-6 px-4 pt-3 bg-transparent">
           <div className="flex flex-wrap items-center">
@@ -110,10 +116,9 @@ export default function CardBarChart({ time, flow, canvasID }) {
         </div>
         <div className="px-4 flex-auto">
           <div className="relative h-screen ">
-            <canvas id={canvasID}></canvas>
+            <canvas id={canvasID}/>
           </div>
         </div>
       </div>
-    </>
   );
 }

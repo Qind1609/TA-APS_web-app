@@ -25,15 +25,15 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
     setFlowMonth(flow.month);
   }, [time, consumption, flow]);
   return (
-    <>
       <div className="">
         <div className="w-full">
           <ul className="flex mb-0 list-none flex-row" role="tablist">
             <li className="-mb-px  last:mr-0 flex-auto text-center">
               <a
                 className={
-                  'text-xs font-bold uppercase py-2 shadow-lg rounded-full mx-4 block leading-normal ' +
-                  (openTab === 1 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
+                  // eslint-disable-next-line
+                  "text-xs font-bold uppercase py-2 shadow-lg rounded-full mx-4 block leading-normal " +
+                  (openTab === 1 ? "text-white bg-blueGray-600" : "text-blueGray-600 bg-blueGray-400")
                 }
                 onClick={e => {
                   e.preventDefault();
@@ -49,8 +49,9 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
             <li className="-mb-px last:mr-0 flex-auto text-center">
               <a
                 className={
-                  'text-xs font-bold rounded-full uppercase py-2 shadow-lg block leading-normal ' +
-                  (openTab === 2 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
+                  // eslint-disable-next-line
+                  "text-xs font-bold rounded-full uppercase py-2 shadow-lg block leading-normal " +
+                  (openTab === 2 ? "text-white bg-blueGray-600" : "text-blueGray-600 bg-blueGray-400")
                 }
                 onClick={e => {
                   e.preventDefault();
@@ -66,8 +67,9 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
             <li className="-mb-px mr-2 rounded-full last:mr-0 flex-auto text-center">
               <a
                 className={
-                  'text-xs font-bold rounded-full mx-4 uppercase py-2 shadow-lg block leading-normal ' +
-                  (openTab === 3 ? 'text-white bg-blueGray-600' : 'text-blueGray-600 bg-blueGray-400')
+                  // eslint-disable-next-line
+                  "text-xs font-bold rounded-full mx-4 uppercase py-2 shadow-lg block leading-normal " +
+                  (openTab === 3 ? "text-white bg-blueGray-600" : "text-blueGray-600 bg-blueGray-400")
                 }
                 onClick={e => {
                   e.preventDefault();
@@ -90,6 +92,7 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
                     consumption={consumptionDay}
                     flow={flowDay}
                     canvasID="dayChartLineHome"
+                    openTab={openTab}
                   />
                 </div>
                 <div className={openTab === 2 ? 'block' : 'hidden'} id="link2">
@@ -98,6 +101,7 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
                     consumption={consumptionWeek}
                     flow={flowWeek}
                     canvasID="weekChartLineHome"
+                    openTab={openTab}
                   />
                 </div>
                 <div className={openTab === 3 ? 'block' : 'hidden'} id="link3">
@@ -106,6 +110,7 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
                     consumption={consumptionMonth}
                     flow={flowMonth}
                     canvasID="monthChartLineHome"
+                    openTab={openTab}
                   />
                 </div>
               </div>
@@ -113,7 +118,6 @@ const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

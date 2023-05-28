@@ -23,6 +23,8 @@ const apiPath = {
     logIn: '/log-in',
     energyMonitor: '/energy-monitor',
     loadMonitor: '/load-monitor',
+    temperatureMonitor: '/temperature-monitor',
+    pressureMonitor: '/pressure-monitor',
     settings: '/settings',
     notification: '/notifications',
     register: '/register',

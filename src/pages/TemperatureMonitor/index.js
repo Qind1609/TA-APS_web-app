@@ -1,23 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from 'layouts/layout';
-import ChartEnergy from './parts/EnergyChart';
-
+import ChartTemp from './parts/TemperatureChart';
 
 export default function TemperatureMonitorPage() {
-  const data_energy = [];
-  for (let i = 0; i < 100; i++) {
-    data_energy.push(Math.floor(Math.random() * 100));
-  }
-  const data_energy_2 = [];
-  for (let i = 0; i < 100; i++) {
-    data_energy_2.push(Math.floor(Math.random() * 100));
-  }
+  const [timeArray, setTimeArray] = useState([global.time]);
+  const [temperatureArr, setTemperatureArray] = useState([global.temp]);
+  useEffect(() => {
+    setTimeArray(global.time);
+    setTemperatureArray(global.temp);
+  }, [global.time, global.temp]);
   return (
     <Layout>
       <div className="flex flex-wrap">
         <div className="w-full">
-          <div className="relative flex flex-col min-w-0 break-words  w-full rounded">
-            <ChartTemp energy_data={data_energy} energy_data_2={data_energy_2} />
+          <div className="relative flex flex-col min-w-0 break-words w-full rounded">
+            <ChartTemp time={timeArray} temperature={temperatureArr}/>
           </div>
         </div>
       </div>

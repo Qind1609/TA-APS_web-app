@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ExportPopup from 'components/ExportBox/ExportPopup';
-import { useState, useEffect } from 'react';
 
 import Button from 'components/Buttons/ButtonDarkMode';
 import NotificationDropdown from 'components/Dropdowns/NotificationDropdown';
@@ -22,7 +21,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
 
     if (currentTheme === 'dark') {
       return (
-        <Button className="bg-gray-200 mx-4 " onClick={() => {}}>
+        <Button className="bg-gray-200 mx-4 " onClick={() => { }}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
               fillRule="evenodd"
@@ -32,242 +31,290 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
           </svg>
         </Button>
       );
-    } else {
-      return (
-        <Button className="bg-gray-200 mx-4" onClick={() => {}}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-          </svg>
-        </Button>
-      );
     }
-  };
+    return (
+      <Button className="bg-gray-200 mx-4" onClick={() => { }}>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+      </Button>
+    );
+  }
 
   return (
-    <>
-      <nav
-        className={`md:left-0 md:block bg-blueGray-800  md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl lex flex-wrap items-center justify-between relative m-2 rounded-lg  z-10 py-4 px-6
-        ${isSidebarOpen ? 'xxl:w-5 md:w-5 lg:w-5 xl:w-5' : 'md:w-64'}  
+    <nav
+      className={`md:left-0 md:block bg-blueGray-800  md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl lex flex-wrap items-center justify-between relative m-2 rounded-lg  z-10 py-4 px-6
+        ${isSidebarOpen ? 'xxl:w-5 md:w-5 lg:w-5 xl:w-5' : 'md:w-64'}
         `}
-      >
-        <button onClick={handleButtonClick} className="button">
-          <i className="fas fa-bars text-white md:block hidden font-semibold p-2"></i>
-        </button>
-        <div
-          className={`md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto
+    >
+      <button onClick={handleButtonClick} className="button">
+        <i className="fas fa-bars text-white md:block hidden font-semibold p-2" />
+      </button>
+      <div
+        className={`md:flex-col md:items-stretch md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto
          `}
+      >
+        {/* Toggler */}
+        <button
+          className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+          type="button"
+          onClick={() => setCollapseShow('bg-white m-2 py-3 px-6')}
         >
-          {/* Toggler */}
-          <button
-            className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-            type="button"
-            onClick={() => setCollapseShow('bg-white m-2 py-3 px-6')}
-          >
-            <i className="fas fa-bars"></i>
-          </button>
+          <i className="fas fa-bars" />
+        </button>
 
-          {/* Brand */}
-          <Link
-            className={`hidden md:block text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
-            ${isSidebarOpen ? 'hidden' : ''}`}
-            to="/"
-          >
-            Think Alpha
-          </Link>
-          {/* User */}
-          <ul className="md:hidden items-center flex flex-wrap list-none">
-            <li className="inline-block relative">
-              <ExportPopup />
-            </li>
-            <li className="inline-block relative">
-              <NotificationDropdown />
-            </li>
-            <li className="inline-block relative">{renderThemeChanger()}</li>
-            <li className="inline-block relative">
-              <UserDropdown />
-            </li>
-          </ul>
-          {/* Collapse */}
-          <div
-            className={
-              'md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded ' +
-              collapseShow
-            }
-          >
-            {/* Collapse header */}
-            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
-              <div className="flex flex-wrap">
-                <div
-                  className={`w-6/12
-                `}
+        {/* Brand */}
+        <Link
+          className={`text-left md:pb-2 text-blueGray-600 mr-0  whitespace-nowrap text-sm uppercase font-bold p-4 px-0
+            ${isSidebarOpen ? 'hidden' : 'block'}`}
+          to="/"
+        >
+          Think Alpha
+        </Link>
+        {/* User */}
+        <ul className="md:hidden items-center flex flex-wrap list-none">
+          <li className="inline-block relative">
+            <ExportPopup />
+          </li>
+          <li className="inline-block relative">
+            <NotificationDropdown />
+          </li>
+          <li className="inline-block relative">{renderThemeChanger()}</li>
+          <li className="inline-block relative">
+            <UserDropdown />
+          </li>
+        </ul>
+        {/* Collapse */}
+        <div
+          className={
+            `md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded ${collapseShow}`
+          }
+        >
+          {/* Collapse header */}
+          <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
+            <div className="flex flex-wrap">
+              <div
+                className="w-6/12"
+              >
+                <Link
+                  to="/"
+                  className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                 >
-                  <Link
-                    to="/"
-                    className={`md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0
-                    `}
-                  >
-                    THINK ALPHA
-                  </Link>
-                </div>
-                <div className="w-6/12 flex justify-end">
-                  <button
-                    type="button"
-                    className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    onClick={() => setCollapseShow('hidden')}
-                  >
-                    <i className="fas fa-times"></i>
-                  </button>
-                </div>
+                  THINK ALPHA
+                </Link>
+              </div>
+              <div className="w-6/12 flex justify-end">
+                <button
+                  type="button"
+                  className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+                  onClick={() => setCollapseShow('hidden')}
+                >
+                  <i className="fas fa-times"/>
+                </button>
               </div>
             </div>
-            {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
-              <div className="mb-3 pt-0">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className=" px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                />
-              </div>
-            </form>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6
-              className={`md:min-w-full text-blueGray-400 text-md uppercase  pt-1 mt-6 pb-4 no-underline
-            ${isSidebarOpen ? 'hidden' : ''}`}
-            >
-              Monitors
-            </h6>
-
-            {/* Navigation */}
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
-                <Link
-                  to="/home"
-                  className={
-                    'text-xs uppercase py-3 flex ' +
-                    (window.location.href.indexOf('/home') !== -1
-                      ? 'text-sky-500 hover:text-sky-600'
-                      : 'text-blueGray-500 hover:text-blueGray-500')
-                  }
-                >
-                  <i
-                    className={
-                      'fas fa-home mr-3 text-sm ' +
-                      (window.location.href.indexOf('/home') !== -1 ? 'opacity-75' : 'text-blueGray-300')
-                    }
-                  ></i>{' '}
-                  Home
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link
-                  to="/energy-monitor"
-                  className={
-                    'text-xs uppercase py-3  flex ' +
-                    (window.location.href.indexOf('/energy-monitor') !== -1
-                      ? 'text-sky-500 hover:text-sky-600'
-                      : 'text-blueGray-500 hover:text-blueGray-500')
-                  }
-                >
-                  <i
-                    className={
-                      'fas fa-tv mr-3 text-sm ' +
-                      (window.location.href.indexOf('/energy-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
-                    }
-                  ></i>{' '}
-                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Electricity</p>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  to="/load-monitor"
-                  className={
-                    'text-xs uppercase py-3  flex ' +
-                    (window.location.href.indexOf('/load-monitor') !== -1
-                      ? 'text-sky-500 hover:text-sky-600'
-                      : 'text-blueGray-500 hover:text-blueGray-500')
-                  }
-                >
-                  <i
-                    className={
-                      'fas fa-tools mr-3 text-sm ' +
-                      (window.location.href.indexOf('/load-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
-                    }
-                  ></i>{' '}
-                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Pneumatics Load</p>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  to="/notifications"
-                  className={
-                    'text-xs uppercase py-3  flex ' +
-                    (window.location.href.indexOf('/notifications') !== -1
-                      ? 'text-sky-500 hover:text-sky-600'
-                      : 'text-blueGray-500 hover:text-blueGray-500')
-                  }
-                >
-                  <i
-                    className={
-                      'fas fa-bell mr-3 text-sm ' +
-                      (window.location.href.indexOf('/notifications') !== -1 ? 'opacity-75' : 'text-blueGray-300')
-                    }
-                  ></i>{' '}
-                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Notifications</p>
-                </Link>
-              </li>
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full " />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-400 text-md uppercase  block pt-4 mt-10 pb-4 no-underline">
-              <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Settings</p>
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link
-                  to="/settings"
-                  className={
-                    'text-xs uppercase py-3 flex ' +
-                    (window.location.href.indexOf('/settings') !== -1
-                      ? 'text-sky-500 hover:text-sky-600'
-                      : 'text-blueGray-500 hover:text-blueGray-500')
-                  }
-                >
-                  <i
-                    className={
-                      'fas fa-table mr-3 text-sm ' +
-                      (window.location.href.indexOf('/settings') !== -1 ? 'opacity-75' : 'text-blueGray-300')
-                    }
-                  ></i>{' '}
-                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Settings</p>
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link to="/log-in" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3  flex">
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-3 text-sm"></i>{' '}
-                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> login</p>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link to="/register" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3 flex">
-                  <i className="fas fa-clipboard-list text-blueGray-300 mr-4 text-sm"></i>{' '}
-                  <p className={`${isSidebarOpen ? '' : 'hindden'}`}> register</p>
-                </Link>
-              </li>
-            </ul>
           </div>
+          {/* Form */}
+          <form className="mt-6 mb-4 md:hidden">
+            <div className="mb-3 pt-0">
+              <input
+                type="text"
+                placeholder="Search"
+                className="px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
+              />
+            </div>
+          </form>
+
+          {/* Divider */}
+          <hr className="my-4 md:min-w-full" />
+          {/* Heading */}
+          <h6
+            className={`md:min-w-full text-blueGray-400 text-md uppercase  pt-1 mt-2 pb-4 no-underline
+            ${isSidebarOpen ? 'hidden' : ''}`}
+          >
+            Monitors
+          </h6>
+
+          {/* Navigation */}
+          <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <li className="items-center">
+              <Link
+                to="/home"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3 flex ' +
+                  (window.location.href.indexOf('/home') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-home mr-3 text-sm ' +
+                    (window.location.href.indexOf('/home') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Home</p>
+              </Link>
+            </li>
+            <li className="items-center">
+              <Link
+                to="/energy-monitor"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3  flex ' +
+                  (window.location.href.indexOf('/energy-monitor') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-tv mr-3 text-sm ' +
+                    (window.location.href.indexOf('/energy-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Electricity</p>
+              </Link>
+            </li>
+
+            <li className="items-center">
+              <Link
+                to="/load-monitor"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3  flex ' +
+                  (window.location.href.indexOf('/load-monitor') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-tools mr-3 text-sm ' +
+                    (window.location.href.indexOf('/load-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Flow</p>
+              </Link>
+            </li>
+
+            <li className="items-center">
+              <Link
+                to="/temperature-monitor"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3  flex ' +
+                  (window.location.href.indexOf('/temperature-monitor') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-tools mr-3 text-sm ' +
+                    (window.location.href.indexOf('/temperature-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Temperature</p>
+              </Link>
+            </li>
+
+            <li className="items-center">
+              <Link
+                to="/pressure-monitor"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3 flex ' +
+                  (window.location.href.indexOf('/pressure-monitor') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-tools mr-3 text-sm ' +
+                    (window.location.href.indexOf('/pressure-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Pressure</p>
+              </Link>
+            </li>
+
+            <li className="items-center">
+              <Link
+                to="/notifications"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3  flex ' +
+                  (window.location.href.indexOf('/notifications') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-bell mr-3 text-sm ' +
+                    (window.location.href.indexOf('/notifications') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Notifications</p>
+              </Link>
+            </li>
+          </ul>
+
+          {/* Divider */}
+          <hr className="my-4 md:min-w-full " />
+          {/* Heading */}
+          <h6 className="md:min-w-full text-blueGray-400 text-md uppercase  block pt-4 mt-2 pb-4 no-underline">
+            <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Settings</p>
+          </h6>
+          {/* Navigation */}
+
+          <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+            <li className="items-center">
+              <Link
+                to="/settings"
+                className={
+                  // eslint-disable-next-line
+                  'text-xs uppercase py-3 flex ' +
+                  (window.location.href.indexOf('/settings') !== -1
+                    ? 'text-sky-500 hover:text-sky-600'
+                    : 'text-blueGray-500 hover:text-blueGray-500')
+                }
+              >
+                <i
+                  className={
+                    // eslint-disable-next-line
+                    'fas fa-table mr-3 text-sm ' +
+                    (window.location.href.indexOf('/settings') !== -1 ? 'opacity-75' : 'text-blueGray-300')
+                  }
+                />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Settings</p>
+              </Link>
+            </li>
+            <li className="items-center">
+              <Link to="/log-in" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3  flex">
+                <i className="fas fa-fingerprint text-blueGray-400 mr-3 text-sm" />{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Login</p>
+              </Link>
+            </li>
+
+            <li className="items-center">
+              <Link to="/register" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3 flex">
+                <i className="fas fa-clipboard-list text-blueGray-300 mr-4 text-sm"/>{' '}
+                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Register</p>
+              </Link>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }

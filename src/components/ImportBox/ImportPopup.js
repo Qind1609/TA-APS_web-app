@@ -72,6 +72,7 @@ export default function DataImport() {
       setLoading(false);
       setLoadMsg('');
       if (res?.data?.success) {
+        // eslint-disable-next-line
         window.alert(`Import file ${file.name} successfully!`);
         global.time = res.data.data.time;
         global.temp = res.data.data.temp;
@@ -79,7 +80,10 @@ export default function DataImport() {
         global.flow = res.data.data.flow;
         global.consumption = res.data.data.consumption;
 
-      } else window.alert("Import file failed!");
+      } else {
+        // eslint-disable-next-line
+        window.alert("Import file failed!");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +94,6 @@ export default function DataImport() {
   };
 
   const handleBrowseClick = () => {
-    //trigger file import box of browser
     inputRef.current.click();
   };
 
@@ -119,7 +122,7 @@ export default function DataImport() {
           <form>
             <div className="">
               <div className="my-4">
-                <label for = "import"  className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                   File CSV:
                 </label>
               </div>

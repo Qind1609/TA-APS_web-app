@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect }  from 'react';
 import Button from 'components/Buttons/ButtonDarkMode';
 
 export default function DarkModeToggle() {
   const [mounted, setMounted] = useState(false);
-  const [collapseShow, setCollapseShow] = useState('hidden');
   useEffect(() => {
     setMounted(true);
   }, []);

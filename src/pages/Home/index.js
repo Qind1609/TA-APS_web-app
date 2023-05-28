@@ -1,6 +1,6 @@
 import React from 'react';
-import ChartHome from './parts/HomeChart';
 import Layout from 'layouts/layout';
+import ChartHome from './parts/HomeChart';
 
 export default function HomePage() {
   console.log(global.time);
