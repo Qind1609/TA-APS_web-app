@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CardLineChart from './CardLineChart';
 
-const ChartHome = ({ time = {}, consumption = [], flow = [] }) => {
+const ChartHome = ({ time = {}, consumption = {}, flow = {} }) => {
   const [openTab, setOpenTab] = useState(1);
   const [dayArray, setDayArray] = useState([]);
   const [weekArray, setWeekArray] = useState([]);

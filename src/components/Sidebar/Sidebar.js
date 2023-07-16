@@ -155,7 +155,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                     (window.location.href.indexOf('/home') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Home</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}>Home</p>
               </Link>
             </li>
             <li className="items-center">
@@ -172,11 +172,11 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                 <i
                   className={
                     // eslint-disable-next-line
-                    'fas fa-tv mr-3 text-sm ' +
+                    'fas fa-bolt mr-3 text-sm ' +
                     (window.location.href.indexOf('/energy-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Electricity</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}>Electricity</p>
               </Link>
             </li>
 
@@ -194,11 +194,11 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                 <i
                   className={
                     // eslint-disable-next-line
-                    'fas fa-tools mr-3 text-sm ' +
+                    'fas fa-wind mr-3 text-sm ' +
                     (window.location.href.indexOf('/load-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Flow</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}>Flow</p>
               </Link>
             </li>
 
@@ -216,11 +216,11 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                 <i
                   className={
                     // eslint-disable-next-line
-                    'fas fa-tools mr-3 text-sm ' +
+                    'fas fa-temperature-low mr-3 text-sm ' +
                     (window.location.href.indexOf('/temperature-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Temperature</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}>Temperature</p>
               </Link>
             </li>
 
@@ -238,11 +238,11 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                 <i
                   className={
                     // eslint-disable-next-line
-                    'fas fa-tools mr-3 text-sm ' +
+                    'fas fa-weight mr-3 text-sm ' +
                     (window.location.href.indexOf('/pressure-monitor') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}>Pressure</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}>Pressure</p>
               </Link>
             </li>
 
@@ -264,7 +264,7 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                     (window.location.href.indexOf('/notifications') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Notifications</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Notifications</p>
               </Link>
             </li>
           </ul>
@@ -296,20 +296,20 @@ export default function Sidebar({ isSidebarOpen, handleButtonClick }) {
                     (window.location.href.indexOf('/settings') !== -1 ? 'opacity-75' : 'text-blueGray-300')
                   }
                 />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Settings</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Settings</p>
               </Link>
             </li>
             <li className="items-center">
               <Link to="/log-in" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3  flex">
                 <i className="fas fa-fingerprint text-blueGray-400 mr-3 text-sm" />{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Login</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Login</p>
               </Link>
             </li>
 
             <li className="items-center">
               <Link to="/register" className="text-blueGray-500 hover:text-blueGray-500 text-xs uppercase py-3 flex">
                 <i className="fas fa-clipboard-list text-blueGray-300 mr-4 text-sm"/>{' '}
-                <p className={`${isSidebarOpen ? '' : 'hindden'}`}> Register</p>
+                <p className={`${isSidebarOpen ? 'hidden' : ''}`}> Register</p>
               </Link>
             </li>
           </ul>
